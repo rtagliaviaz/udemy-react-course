@@ -1,0 +1,104 @@
+import React, {useState, useEffect} from 'react'
+//components
+import Card from './Card';
+//axios
+import axios from 'axios'
+//styled components
+import {ThemeProvider} from 'styled-components';
+import Button from './element/Button'
+//faker
+import faker from 'faker';
+//css
+import './custom.css'
+
+//styles
+const theme = {
+  primary: '#4caf50',
+  mango: 'orange'
+}
+
+const App = () => {
+  const [card, setCard] = useState([])
+  const [id, setId] = useState(1);
+
+  //fetch data
+  useEffect(() => {
+    axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)
+    .then(res => {
+      console.log(res.data)
+      setCard(res.data)
+    })
+  }, [id])
+
+  // const deleteCardHandle = (cardIndex) => {
+  //   const cards_copy = [...cards];
+  //   cards_copy.splice(cardIndex, 1)
+  //   setCards(cards_copy)
+  // }
+
+  // const toggleShowCard = () => setShowCard(!showCard)
+
+  // const changeNameHandler = (e, id) => {
+  //   //1 which card
+  //   console.log(id)
+  //   const cardIndex = cards.findIndex(card => card.id === id)
+  //   console.log(cardIndex)
+  //   //2 make a copy of the cards
+  //   const cards_copy = [...cards]
+  //   //3 change the name of specific card
+  //   cards_copy[cardIndex].name = e.target.value
+  //   //4 set the cards with the latest version
+  //   setCards(cards_copy);
+  // }
+  //style
+  // const buttonStyle = {
+  //   backgroundColor: null
+  // }
+
+  // const classes = ['button']
+
+  // if (cards.length < 3) classes.push('pink')
+  // if (cards.length < 2) classes.push('red text')
+  // if (cards.length < 3) buttonStyle.backgroundColor = 'lightPink'
+  // if (cards.length < 2) buttonStyle.backgroundColor = 'orange'
+
+  // const cardsMarkup = showCard && (
+  //   cards.map((card, index)=><Card 
+  //     key={card.id}
+  //     name={card.name}
+  //     phone={card.phone}
+  //     onDelete={()=>deleteCardHandle(index)}
+  //     onChangeName = {e => changeNameHandler(e, card.id)}
+  //   >
+  //   </Card>)
+  // )
+
+  return(
+    // <ThemeProvider theme={theme}>
+    //   <div className="App">
+    //     <Button color='mango' length={cards.length}>Toggle</Button>
+    //     <button 
+    //       // className="button" 
+    //       className={classes.join(' ')}
+    //       // style={buttonStyle}
+    //       onClick={toggleShowCard}> Show / Hide
+    //     </button>
+    //     {cardsMarkup}  
+    //   </div>
+    // </ThemeProvider>
+
+    <div className="App">
+      <input type="text" value={id} onChange={e=> setId(e.target.value)}/>
+      <Card 
+        key={card.id}
+        name={card.name}
+        phone={card.phone}
+        // onDelete={()=>deleteCardHandle(index)}
+        // onChangeName = {e => changeNameHandler(e, card.id)}
+      >
+      </Card>
+    </div>
+  )
+}
+
+export default App;

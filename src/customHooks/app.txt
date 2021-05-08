@@ -1,0 +1,67 @@
+import React from 'react'
+import './App.css'
+// import Counter from './components2/Counter'
+// import ComponentA from './components2/ComponentA'
+// import Component from './components2/Component'
+import Form from './components2/Form.js'
+
+const App = () => {
+  return(
+    <div>
+      <Form></Form>
+    </div>
+  )
+}
+
+export default App;
+// const App = () => {
+//   const [show, setShow] = useState(true)
+//   const inputRef = useRef();
+//   return(
+//     <div>
+//       <h1>FOCUS on input field</h1>
+//       <input ref={inputRef} type="text"/>
+//       <input type="text"/>
+//       <input type="text"/>
+//       <button onClick={() => {
+//         inputRef.current.focus()
+//       }}>focus</button>
+//       <p></p>
+//       <h1>Unmount component</h1>
+//       <button onClick={() => setShow(!show)}>toggle</button>
+//       {show && <Component />}
+//     </div>
+//   )
+// }
+
+// export const CounterContext = React.createContext()
+// const initialState = {
+//   counter: 0
+// }
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case 'increment':
+//       return {...state, counter: state.counter+ action.payload}
+//     case 'decrement':
+//       return {...state, counter: state.counter- action.payload}
+//     case 'reset':
+//       return initialState
+//     default: return state
+      
+//   }
+// }
+
+
+// const App = () => {
+//   const [state, dispatch] = useReducer(reducer, initialState)
+//   return (
+//     <CounterContext.Provider value={{counter: state.counter, dispatch}}>
+//       <div className="App">
+//         <ComponentA />
+//       </div>
+//     </CounterContext.Provider>
+    
+//   )
+// }
+
+// export default App
